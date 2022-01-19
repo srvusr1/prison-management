@@ -1,7 +1,8 @@
 <?php
 session_start();
 include('db_connect.php');
-
+$current_username =  $_SESSION["username"];
+// echo $current_username;
 ?>
 <!DOCTYPE html>
 <html lang="en">

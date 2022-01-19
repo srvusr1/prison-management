@@ -68,6 +68,9 @@ if(isset($_POST['submit'])){
 </head>
 <link rel="stylesheet" href="style.css">
 <body>
+    <nav class="navigation">
+        <a href="login.php">User Login</a>
+    </nav>
     <section class="section">
         <h1 class="title">ADMIN</h1>
         <form action="" method="POST" class="form">

@@ -25,6 +25,9 @@
 </head>
 
 <body>
+    <nav class="navigation">
+        <a href="login.php">User Login</a>
+    </nav>
     <section class="section">
         <h1 class="title">ADMIN</h1>
         
@@ -34,6 +37,8 @@
                 <input type="submit" name="viewlogs" class="submit" value="View Logs">
             </div>
         </form>
+
+        <!-- show hide buttons  -->
         <div class="manage-buttons">
             <!-- add user  -->
             <div class="button">
@@ -52,7 +57,7 @@
         </div>
 
 
-
+        <!-- form add user  -->
         <form action="" method="POST" class="adduser" id="adduser" style="display: none">
             <!-- <h1>Add New User</h1> -->
 
@@ -61,31 +66,53 @@
                 <i class="fas fa-user-circle"></i>
             </div>
             <div class="formcontainer">
-            <div class="container">.
+                <div class="container">
 
-                <label class="username"><strong>Username</strong></label>
-                <input type="text" placeholder="Enter Username" name="username" required>
+                    <label class="username"><strong>Username</strong></label>
+                    <input type="text" placeholder="Enter Username" name="username" required>
 
-                <label class="name"><strong>Name</strong></label>
-                <input type="text" placeholder="Enter Name" name="name" required>
-                
-                <label class="password"><strong>Password</strong></label>
-                <input type="password" placeholder="Enter Password" name="password" required>
-            </div>
+                    <label class="name"><strong>Name</strong></label>
+                    <input type="text" placeholder="Enter Name" name="name" required>
+                    
+                    <label class="password"><strong>Password</strong></label>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+                </div>
 
-            <div class="submit">
-                <input type="submit" name="adduser" class="Add User" value="adduser">
+                <div class="submit">
+                    <input type="submit" name="adduser" class="Add User" value="adduser">
+                </div>
             </div>
             
         </form>
-
-        <!-- <form action="" method="POST" class="deleteuser" id="deleteuser" style="display: none">
+        <!-- form delete user  -->
+        <form action="" method="POST" class="deleteuser" id="deleteuser" style="display: none">
             <h1>delete user</h1>
+            <div class="icon">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="formcontainer">
+                <div class="container">
+                    <label class="username"><strong>Username</strong></label>
+                    <input type="text" placeholder="Enter Username" name="username" required>
+                </div>
+                <div class="submit">
+                    <input type="submit" name="deleteuser" class="Delete User" value="deleteuser">
+                </div>
+            </div>
         </form>
 
+        <!-- form view user  -->
         <form action="" method="POST" class="viewuser" id="viewuser" style="display: none">
             <h1>view user</h1>
-        </form> -->
+            <div class="icon">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="formcontainer">
+                <div class="submit">
+                    <input type="submit" name="viewuser" class="Delete User" value="viewuser">
+                </div>
+            </div>
+        </form>
 
         
     </section>
@@ -123,14 +150,39 @@ mysqli_free_result($resultlogin);
 
 if(isset($_POST['viewlogs'])){
     echo "<br><br><br>";
+    // foreach($logins as $login){
+    //     echo 'SERIAL NO : ' . $login['NO']."<br>";
+    //     echo 'USERNAME : ' . $login['USERNAME']."<br>";
+    //     echo 'NAME : ' . $login['NAME']."<br>";
+    //     echo 'LOGIN TIME : ' . $login['LOGIN_TIME']."<br>";
+    //     echo 'LOGOUT TIME : ' . $login['LOGOUT_TIME']."<br>";
+    //     echo 'NO.OF CHANGES : ' . $login['CHANGES_COUNT']."<br><br><br>";
+    // }
+
+
+    echo "<table border='1'>
+    <tr>
+        <th>NO</th>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Login Time</th>
+        <th>Logout Time</th>
+        <th>Changes Count</th>
+    </tr>";
+    $id = 1;
     foreach($logins as $login){
-        echo 'SERIAL NO : ' . $login['NO']."<br>";
-        echo 'USERNAME : ' . $login['USERNAME']."<br>";
-        echo 'NAME : ' . $login['NAME']."<br>";
-        echo 'LOGIN TIME : ' . $login['LOGIN_TIME']."<br>";
-        echo 'LOGOUT TIME : ' . $login['LOGOUT_TIME']."<br>";
-        echo 'NO.OF CHANGES : ' . $login['CHANGES_COUNT']."<br><br><br>";
+
+        echo "<tr>";
+        // echo "<td>" . $login['NO'] . "</td>";
+        echo "<td>" . $id++ . "</td>";
+        echo "<td>" . $login['USERNAME'] . "</td>";
+        echo "<td>" . $login['NAME'] . "</td>";
+        echo "<td>" . $login['LOGIN_TIME'] . "</td>";
+        echo "<td>" . $login['LOGOUT_TIME'] . "</td>";
+        echo "<td>" . $login['CHANGES_COUNT'] . "</td>";
+        echo "</tr>";
     }
+    echo "</table>";
 }
 
 $errors = array('username'=>'','name'=>'','password'=>'');
@@ -158,8 +210,45 @@ if(isset($_POST['adduser'])){
             //save to db and check
             // mysqli_query($conn, $sql3);
         }
-    
+}
 
+if(isset($_POST['deleteuser'])){
+    $username = $_POST['username'];
+        $result = mysqli_query($conn,"SELECT * FROM user_db WHERE USERNAME = '$username'");
+        {
+            $username = mysqli_real_escape_string($conn, $_POST['username']);
+
+            // $sql3 = "INSERT INTO user_db(USERNAME,NAME,PASSWORD)VALUES('$username', '$name', '$password')";
+            
+            $sql = "DELETE FROM user_db WHERE USERNAME = '$username'";
+            // print_r($logins);
+            if(mysqli_query($conn,$sql)){
+                echo '<script>alert("User Deleted!")</script>';
+
+            }
+            //save to db and check
+            // mysqli_query($conn, $sql3);
+        }
+}
+
+if(isset($_POST['viewuser'])){
+
+    echo "<table border='1'>
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Name</th>
+    </tr>";
+    $id = 1;
+    foreach($users as $user){
+
+        echo "<tr>";
+        echo "<td>" . $id++ . "</td>";
+        echo "<td>" . $user['USERNAME'] . "</td>";
+        echo "<td>" . $user['NAME'] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
 }
 //close connection
 mysqli_close($conn);
