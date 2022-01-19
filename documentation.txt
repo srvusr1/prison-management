@@ -1,0 +1,19 @@
+create a log file to save all changes
+login page
+    several logins - save the login details and time
+    count, login username and name, date, time, logout time, number of changes made
+
+new user creator
+    permission only to admin
+    admin login
+
+on successfull login 
+    Home page
+
+Home page
+    new prisoner
+    prisoner release date
+    new officer
+
+
+
