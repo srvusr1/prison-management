@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    
     <script type="text/javascript">
         function ShowHideDiv(btnDisplay) {
             var addUser = document.getElementById("adduser");
@@ -23,7 +24,7 @@
     </script>
 
 </head>
-
+<?php ?>
 <body>
     <nav class="navigation">
         <a href="login.php">User Login</a>
@@ -84,6 +85,7 @@
             </div>
             
         </form>
+        
         <!-- form delete user  -->
         <form action="" method="POST" class="deleteuser" id="deleteuser" style="display: none">
             <h1>delete user</h1>
