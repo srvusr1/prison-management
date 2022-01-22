@@ -27,17 +27,19 @@
 <?php ?>
 <body>
     <nav class="navigation">
-        <a href="login.php">User Login</a>
+        <!-- <a href="login.php">User Login</a> -->
+        <form action=""  method="POST" class="buttosn-form">
+            <!-- view log  -->
+            <div class="button">
+                <!-- <input type="submit" name="viewlogs" class="submit" value="View Logs"> -->
+                <button name="viewlogs" class="submit" value="View Logs" style="background-color: red;">View Logs</button>
+            </div>
+        </form>
     </nav>
     <section class="section">
         <h1 class="title">ADMIN</h1>
         
-        <form action=""  method="POST" class="button-form">
-            <!-- view log  -->
-            <div class="button">
-                <input type="submit" name="viewlogs" class="submit" value="View Logs">
-            </div>
-        </form>
+        
 
         <!-- show hide buttons  -->
         <div class="manage-buttons">
@@ -45,15 +47,25 @@
             <div class="button">
                 <!-- <input type="submit" name="adduser" class="submit" value="Add User"> -->
                 <!-- <button type="button" id="formButton">Toggle Form!</button> -->
-                <input type="button" value="adduser" onclick="ShowHideDiv(this)" />
+                <!-- <input type="button" value="adduser" onclick="ShowHideDiv(this)" /> -->
+                <button value="adduser" onclick="ShowHideDiv(this)">Add User</button>
             </div>
             <!-- remove user  -->
             <div class="button">
-                <input type="button" value="deleteuser" onclick="ShowHideDiv(this)" />
+                <!-- <input type="button" value="deleteuser" onclick="ShowHideDiv(this)" /> -->
+                <button value="deleteuser" onclick="ShowHideDiv(this)" >Delete User</button>
             </div>
             <!-- view user  -->
             <div class="button">
-                <input type="button" value="viewuser" onclick="ShowHideDiv(this)" />
+                <!-- <input type="button" value="viewuser" onclick="ShowHideDiv(this)" /> -->
+                <button value="viewuser" onclick="ShowHideDiv(this)"  >View User</button>
+            </div>
+            <div class="button">
+                <!-- <input type="button" value="Refresh" onClick="location.href='indexadmin.php'"/> -->
+                <button value="Refresh" onClick="location.href='indexadmin.php'">Refresh</button>
+            </div>
+            <div class="button">
+                <button value="Logout" onClick="location.href='admin.php'" style="background-color: red;">Logout</button>
             </div>
         </div>
 
@@ -80,7 +92,8 @@
                 </div>
 
                 <div class="submit">
-                    <input type="submit" name="adduser" class="Add User" value="adduser">
+                    <!-- <input type="submit" name="adduser" class="Add User" value="adduser"> -->
+                    <button name="adduser" class="Add User" value="adduser">ADD</button>
                 </div>
             </div>
             
@@ -98,7 +111,8 @@
                     <input type="text" placeholder="Enter Username" name="username" required>
                 </div>
                 <div class="submit">
-                    <input type="submit" name="deleteuser" class="Delete User" value="deleteuser">
+                    <!-- <input type="submit" name="deleteuser" class="Delete User" value="deleteuser"> -->
+                    <button name="deleteuser" class="Delete User" value="deleteuser" style="background-color: red;">DELETE</button>
                 </div>
             </div>
         </form>
@@ -111,7 +125,8 @@
             </div>
             <div class="formcontainer">
                 <div class="submit">
-                    <input type="submit" name="viewuser" class="Delete User" value="viewuser">
+                    <!-- <input type="submit" name="viewuser" class="Delete User" value="viewuser"> -->
+                    <button name="viewuser" class="Delete User" value="viewuser">VIEW</button>
                 </div>
             </div>
         </form>

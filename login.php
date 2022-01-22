@@ -116,7 +116,7 @@ mysqli_close($conn);
 <link rel="stylesheet" href="style.css">
 <body>
     <section class="section">
-        <h1 class="title">User Login page</h1>
+        <h1 class="title">User Login</h1>
         <form action="" method="POST" class="form">
 
             <label class="username" >Userame</label>
@@ -128,10 +128,14 @@ mysqli_close($conn);
             <div class="errors" ><?php echo $errors['password']; ?></div> 
 
             <div class="submit">
-                <input type="submit" name="submit" class="submit" value="Login">
+                <!-- <input type="submit" name="submit" class="submit" value="Login"> -->
+                <button  name="submit" class="submit" value="Login">Login</button>
+                <button value="Reset Login" onClick="location.href='login.php'">Reset</button>
+                
             </div>
             <div class="button">
-                <a href="admin.php" class="login">Admin Login</a>
+                <!-- <a href="admin.php" class="login">Admin Login</a> -->
+                <button value="Amin Login" onClick="location.href='admin.php'" style="background-color: blue;min-width:96%">Goto Admin Login</button>
             </div>
         </form>
     </section>

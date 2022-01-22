@@ -68,14 +68,12 @@ if(isset($_POST['submit'])){
 </head>
 <link rel="stylesheet" href="style.css">
 <body>
-    <nav class="navigation">
-        <a href="login.php">User Login</a>
-    </nav>
+    
     <section class="section">
         <h1 class="title">ADMIN</h1>
         <form action="" method="POST" class="form">
 
-            <label class="adminname" >Adminname</label>
+            <label class="adminname" >Admin Name</label>
             <input type="text" name="adminname" placeholder="adminname" value="<?php echo $adminname ?>">
             <div class="errors"><?php echo $errors['adminname']; ?></div>
 
@@ -84,9 +82,15 @@ if(isset($_POST['submit'])){
             <div class="errors" ><?php echo $errors['password']; ?></div> 
 
             <div class="submit">
-                <input type="submit" name="submit" class="submit">
+                <!-- <input type="submit" > -->
+                <button name="submit" class="submit">Login</button>
+                <button value="Reset Login" onClick="location.href='admin.php'">Reset</button>
             </div>
+            
         </form>
+        <div>
+            <button value="User Login" onClick="location.href='logout.php'" style="background-color: blue;min-width:96%">Goto User Login</button>
+        </div>
     </section>
 </body>
 </html>
