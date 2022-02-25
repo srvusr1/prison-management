@@ -1,7 +1,7 @@
 <?php
 
 
-include('db_connect.php');
+include('../db_connect.php');
 
 //write query for all login
 $sql = 'SELECT * FROM login_db';
@@ -70,26 +70,30 @@ if(isset($_POST['submit'])){
 <body>
     
     <section class="section">
-        <h1 class="title">ADMIN</h1>
-        <form action="" method="POST" class="form">
+        <div class="container">
+            <h1 class="title">ADMIN</h1>
+            <form action="" method="POST" class="form">
 
-            <label class="adminname" >Admin Name</label>
-            <input type="text" name="adminname" placeholder="adminname" value="<?php echo $adminname ?>">
-            <div class="errors"><?php echo $errors['adminname']; ?></div>
+                <!-- <label class="adminname" >Admin Name</label> -->
+                <div class="sub-container">
+                    <input type="text" name="adminname" placeholder="adminname" value="<?php echo $adminname ?>">
+                    <div class="errors"><?php echo $errors['adminname']; ?></div>
+                </div>
 
-            <label class="password">Password</label>
-            <input type="password" name="password" placeholder="Password">
-            <div class="errors" ><?php echo $errors['password']; ?></div> 
+                <!-- <label class="password">Password</label> -->
+                <div class="sub-container">
+                    <input type="password" name="password" placeholder="Password">
+                    <div class="errors" ><?php echo $errors['password']; ?></div> 
+                </div>
 
-            <div class="submit">
-                <!-- <input type="submit" > -->
-                <button name="submit" class="submit">Login</button>
-                <button value="Reset Login" onClick="location.href='admin.php'">Reset</button>
+                <div class="submit">
+                    <!-- <input type="submit" > -->
+                    <button name="submit" class="submit">Login</button>
+                </div>
+            </form>
+            <div>
+                <button value="User Login" name="submit" class="submit" onClick="location.href='../login/login.php'">User</button>
             </div>
-            
-        </form>
-        <div>
-            <button value="User Login" onClick="location.href='logout.php'" style="background-color: blue;min-width:96%">Goto User Login</button>
         </div>
     </section>
 </body>

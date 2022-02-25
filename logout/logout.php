@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('Asia/Kolkata');
 session_start();
-include('db_connect.php');
+include('../db_connect.php');
 $sqllogin = 'SELECT * FROM login_db';
 $resultlogin = mysqli_query($conn, $sqllogin);
 $logins =  mysqli_fetch_all($resultlogin, MYSQLI_ASSOC);
@@ -16,5 +16,5 @@ if(mysqli_query($conn,$sql)){
 }
 unset($_SESSION["username"]);
 unset($_SESSION["id"]);
-header("Location:login.php");
+header("Location:../login/login.php");
 ?>

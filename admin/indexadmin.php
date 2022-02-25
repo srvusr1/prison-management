@@ -8,7 +8,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="indexstyle.css">
     
     <script type="text/javascript">
         function ShowHideDiv(btnDisplay) {
@@ -143,7 +143,7 @@
 <?php
 
 
-include('db_connect.php');
+include('../db_connect.php');
 //write query for all login
 $sqluser = 'SELECT * FROM user_db';
 $sqllogin = 'SELECT * FROM login_db';

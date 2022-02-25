@@ -1,10 +1,12 @@
 .errors {
     color: red;
 }
-
+body{
+    background: url('../Assets/wall.jpg');
+}
 html,
 body {
-    background-image: url('Assets/wall.jpg');
+    
     display: flex;
     justify-content: center;
     font-family: Roboto, Arial, sans-serif;

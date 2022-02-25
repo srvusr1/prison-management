@@ -1,0 +1,64 @@
+.errors {
+    color: red;
+}
+body{
+    background: url('../Assets/wall.jpg');
+}
+html,
+body {
+    
+    display: flex;
+    justify-content: center;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 15px;
+    margin-top: 4%;
+}
+.title{
+    color: white;
+}
+
+select,
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 5px 5px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+button {
+    background-color: #4286f4;
+    color: white;
+    padding: 4px 0;
+    margin: 12px 0px;
+    border: none;
+    cursor: grab;
+    min-width: 100%;
+    /* width: 30%; */
+    border-radius: 2px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 18;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.container {
+    background-color: rgb(243, 243, 243);
+    color: black;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: left;
+    max-width: 500px;
+}
+.sub-container{
+    width: 250px;
+}

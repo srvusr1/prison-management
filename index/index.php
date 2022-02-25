@@ -1,8 +1,8 @@
 <?php
 session_start();
-include('db_connect.php');
+include('../db_connect.php');
 $current_username =  $_SESSION["username"];
-if(!isset($current_username)) header('Location: login.php');
+if(!isset($current_username)) header('Location:../login/login.php');
 // echo $current_username;
 ?>
 <!DOCTYPE html>
@@ -80,7 +80,7 @@ if(!isset($current_username)) header('Location: login.php');
                 <button value="Refresh" onClick="location.href='index.php'">Refresh</button>
             </div>
             <div class="button">
-                <button value="Logout" onClick="location.href='logout.php'" style="background-color: red;">Logout</button>
+                <button value="Logout" onClick="location.href='../logout/logout.php'" style="background-color: red;">Logout</button>
             </div>
         </div>
 
@@ -282,7 +282,7 @@ if(!isset($current_username)) header('Location: login.php');
 <?php
 
 
-include('db_connect.php');
+include('../db_connect.php');
 $sqlprison = 'SELECT * FROM prison_db';
 $resultprison = mysqli_query($conn, $sqlprison);
 $prisons = mysqli_fetch_all($resultprison, MYSQLI_ASSOC);
