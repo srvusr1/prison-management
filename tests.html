@@ -27,3 +27,146 @@
 </body>
 
 </html>
+
+<?php if($_SESSION["username"] == $current_username) { ?>
+    <span><!-- html  -->
+    <span>Welcome</span>
+    <!-- php  -->
+    <b style="color: red;"><i>
+        <span><?php echo $current_username;?>!</span>
+    </i></b></span>
+    <!-- html  -->
+<?php } else echo "<h1>Please login first .</h1>"; ?>
+
+
+
+<?php
+
+
+include('../db_connect.php');
+//write query for all login
+$sqluser = 'SELECT * FROM user_db';
+$sqllogin = 'SELECT * FROM login_db';
+
+//make query and get result
+$resultuser = mysqli_query($conn, $sqluser);
+$resultlogin = mysqli_query($conn, $sqllogin);
+//fetch the resulting rows as an array
+
+$users = mysqli_fetch_all($resultuser, MYSQLI_ASSOC);
+$logins =  mysqli_fetch_all($resultlogin, MYSQLI_ASSOC);
+//free result form memory
+
+mysqli_free_result($resultuser);
+mysqli_free_result($resultlogin);
+// print_r($users);
+// print_r($logins);
+// print_r($users);
+
+
+
+if(isset($_POST['viewlogs'])){
+    echo "<br><br><br>";
+    // foreach($logins as $login){
+    //     echo 'SERIAL NO : ' . $login['NO']."<br>";
+    //     echo 'USERNAME : ' . $login['USERNAME']."<br>";
+    //     echo 'NAME : ' . $login['NAME']."<br>";
+    //     echo 'LOGIN TIME : ' . $login['LOGIN_TIME']."<br>";
+    //     echo 'LOGOUT TIME : ' . $login['LOGOUT_TIME']."<br>";
+    //     echo 'NO.OF CHANGES : ' . $login['CHANGES_COUNT']."<br><br><br>";
+    // }
+
+
+    echo "<table border='1'>
+    <tr>
+        <th>NO</th>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Login Time</th>
+        <th>Logout Time</th>
+        <th>Changes Count</th>
+    </tr>";
+    $id = 1;
+    foreach($logins as $login){
+
+        echo "<tr>";
+        // echo "<td>" . $login['NO'] . "</td>";
+        echo "<td>" . $id++ . "</td>";
+        echo "<td>" . $login['USERNAME'] . "</td>";
+        echo "<td>" . $login['NAME'] . "</td>";
+        echo "<td>" . $login['LOGIN_TIME'] . "</td>";
+        echo "<td>" . $login['LOGOUT_TIME'] . "</td>";
+        echo "<td>" . $login['CHANGES_COUNT'] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+}
+
+$errors = array('username'=>'','name'=>'','password'=>'');
+$username = $password = $name = '';
+
+if(isset($_POST['adduser'])){
+    $username = $_POST['username'];
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+
+        $result = mysqli_query($conn,"SELECT * FROM user_db WHERE USERNAME = '$username'");
+        {
+            $username = mysqli_real_escape_string($conn, $_POST['username']);
+            $name = mysqli_real_escape_string($conn, $_POST['name']);
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+            // $sql3 = "INSERT INTO user_db(USERNAME,NAME,PASSWORD)VALUES('$username', '$name', '$password')";
+            
+            $sql = "INSERT INTO user_db(USERNAME,NAME,PASSWORD) VALUES ('$username','$name','$password')";
+            // print_r($logins);
+            if(mysqli_query($conn,$sql)){
+                echo '<script>alert("New User Added!")</script>';
+
+            }
+            //save to db and check
+            // mysqli_query($conn, $sql3);
+        }
+}
+
+if(isset($_POST['deleteuser'])){
+    $username = $_POST['username'];
+        $result = mysqli_query($conn,"SELECT * FROM user_db WHERE USERNAME = '$username'");
+        {
+            $username = mysqli_real_escape_string($conn, $_POST['username']);
+
+            // $sql3 = "INSERT INTO user_db(USERNAME,NAME,PASSWORD)VALUES('$username', '$name', '$password')";
+            
+            $sql = "DELETE FROM user_db WHERE USERNAME = '$username'";
+            // print_r($logins);
+            if(mysqli_query($conn,$sql)){
+                echo '<script>alert("User Deleted!")</script>';
+
+            }
+            //save to db and check
+            // mysqli_query($conn, $sql3);
+        }
+}
+
+if(isset($_POST['viewuser'])){
+
+    echo "<table border='1'>
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Name</th>
+    </tr>";
+    $id = 1;
+    foreach($users as $user){
+
+        echo "<tr>";
+        echo "<td>" . $id++ . "</td>";
+        echo "<td>" . $user['USERNAME'] . "</td>";
+        echo "<td>" . $user['NAME'] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+}
+//close connection
+mysqli_close($conn);
+?>

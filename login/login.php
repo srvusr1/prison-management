@@ -111,7 +111,7 @@ if (isset($_POST['submit'])) {
         </div>
         <div class="split-right">
             <div class="inner-of-right">
-                <img src="../Assets/portal.png" alt="">
+                <img src="../Assets/keralapolicelogo.svg" alt="">
             </div>
         </div>
     </section>

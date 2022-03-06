@@ -2,49 +2,42 @@
     color: red;
 }
 
-html,
 body {
-    background-image: url('Assets/wall.jpg');
-    display: flex;
-    justify-content: center;
+    background-image: url('../Assets/wall.jpg');
     font-family: Roboto, Arial, sans-serif;
-    font-size: 15px;
-    margin-top: 4%;
+    /* color: white; */
+    /* overflow: hidden; */
 }
 
-.section {
-    /* min-width: 500px; */
+.nav-bar{
     display: flex;
-    height: 400px;
-    width: 600px;
-
+    justify-content: space-between;
+    margin: 25px;
+    background-color: #ffffff;
+    margin: 0;
+    padding:8px;
+}
+.mace-title a{
+    color: black;
+    font-size: bold;
+}
+.mace-title{
+    color: black;
+    font-size: bold;z
+}
+.nav-opt{
+    color: white;
+    background-color: rgb(73, 7, 82);
+    margin: 0px 5px;
+    padding: 0 25px;
 }
 
-.split-left {
-    background-color: #192F3D;
-    width: 30%;
-    /* height: 520px; */
+a{
+    text-decoration: none;
+    color: white;
 }
 
-.split-right {
-    width: 70%;
-    /* object-fit: cover; */
-}
 
-.split-right img {
-    width: 110%;
-}
-
-.inner-of-left {
-    height: auto;
-    margin: 0 auto;
-    padding: 20px;
-    position: relative;
-}
-
-form {
-    /* border: 5px solid #f1f1f1; */
-}
 
 select,
 input[type=text],
@@ -82,30 +75,58 @@ input[type=password] {
     justify-content: center;
     color: #4286f4;
 }
-
-button {
-    background-color: #4286f4;
+.container-body{
+    width: 70%;
+    display: flex;
+    max-height: 100vh;
+    justify-content: space-between;
+}
+.option-container{
+    width: 20%;
+    background-color: rgb(255, 255, 255);
+}
+.display-container{
+    margin: auto 0;
+    backdrop-filter: blur(2px);
+    height: 100%;
+    padding: 25px;
+    /* background-color: #ffffff; */
+    /* max-width: 500px; */
+    display: flex;
     color: white;
-    padding: 4px 0;
-    margin: 12px 0px;
+
+    
+    
+}
+.background{
+    /* background-color: rgb(223, 201, 228); */
+}
+button {
+    background-color: rgb(22, 9, 34);
+    color: white;
+    padding: 15px 0;
+    /* margin: 5px 0px; */
     border: none;
     cursor: grab;
-    min-width: 100%;
-    /* width: 30%; */
-    border-radius: 2px;
+    width: 100%;
 }
-
+.button{
+    
+}
 h1 {
     text-align: center;
     font-size: 18;
 }
 
 button:hover {
-    opacity: 0.8;
+    /* opacity: 0.8; */
+    background-color: rgb(18, 6, 29);
+    margin-left: 10px;
+
 }
 
 .formcontainer {
-    text-align: center;
+    text-align: left;
     margin: 24px 50px 12px;
 }
 
@@ -114,7 +135,8 @@ button:hover {
 }
 
 .container {
-    padding: 16px 0;
+    display: block;
+    padding: 18px 0;
     text-align: left;
 }
 
@@ -124,15 +146,7 @@ span.psw {
     padding-right: 15px;
 }
 
-.manage-buttons {
-    display: flex;
-    justify-content: space-around;
-}
 
-.manage-buttons div {
-    justify-content: space-around;
-    align-items: center;
-}
 
 .container {
     max-width: 500px;

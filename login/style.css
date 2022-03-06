@@ -29,12 +29,13 @@ body {
 }
 
 .split-right {
-    width: 70%;
+    width: 75%;
+    background-color: white;
     /* object-fit: cover; */
 }
 
 .split-right img {
-    width: 110%;
+    width: 100%;
 }
 
 .inner-of-left {

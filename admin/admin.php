@@ -71,7 +71,7 @@ if(isset($_POST['submit'])){
     
     <section class="section">
         <div class="container">
-            <h1 class="title">ADMIN</h1>
+            <h1 class="title" style="color:black">ADMIN</h1>
             <form action="" method="POST" class="form">
 
                 <!-- <label class="adminname" >Admin Name</label> -->
